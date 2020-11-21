@@ -1,15 +1,15 @@
 import random
 import gevent
 import time
-from locust import events, Locust
+from locust import events, User
 
-import hlslocust.hlserror as hlserror
-import hlslocust.hlsobject as hlsobject
+import hlserror as hlserror
+import hlsobject as hlsobject
 
 BUFFERTIME = 10.0 # time to wait before playing
 MAXRETRIES = 2
 
-class HLSLocust(Locust):
+class HLSLocust(User):
     def __init__(self, *args, **kwargs):
         super(HLSLocust, self).__init__(*args, **kwargs)
         self.client = Player()
